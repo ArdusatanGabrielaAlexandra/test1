@@ -52,7 +52,7 @@ def guessing():
     while guess_taken < 10:
 
 
-        guess = input("Introduceti o litera\n").upper()
+        guess = input("Introduceti o literă\n").upper()
 
         if not guess in alphabet: #checking input
             print("Introduceti o litera de la A-Z ")
