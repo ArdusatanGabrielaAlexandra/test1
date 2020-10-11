@@ -38,9 +38,9 @@ def change():
     for character in secretWord: # printing blanks for each letter in secret word
         guess_word.append("*")
 
-    print("Ok, so the word You need to guess has", length_word, "characters")
+    print("Cuvântul are", length_word, "caractere")
 
-    print("Be aware that You can enter only 1 letter from A-Z\n\n")
+    print("Rețineți că puteți introduce doar o litera din alfabet,de la A-Z\n\n")
 
     print(guess_word)
 
@@ -52,34 +52,34 @@ def guessing():
     while guess_taken < 10:
 
 
-        guess = input("Pick a letter\n").upper()
+        guess = input("Introduceti o litera\n").upper()
 
         if not guess in alphabet: #checking input
-            print("Enter a letter from A-Z alphabet")
+            print("Introduceti o litera de la A-Z ")
         elif guess in letter_storage: #checking if letter has been already used
-            print("You have already guessed that letter!")
+            print("Ai ghicit deja aceasta litera!")
         else:
 
             letter_storage.append(guess)
             if guess in secretWord:
-                print("You guessed correctly!")
+                print("Litera corecta!")
                 for x in range(0, length_word): #This Part I just don't get it
                     if secretWord[x] == guess:
                         guess_word[x] = guess
                         print(guess_word)
 
                 if not '*' in guess_word:
-                    print("You won!")
+                    print("Ai castigat!")
                     break
             else:
-                print("The letter is not in the word. Try Again!")
+                print("Litera nu este in cuvant. Incearca din nou!")
                 guess_taken += 1
                 if guess_taken == 10:
-                    print("  You lost :<! The secret word was",         secretWord)
+                    print("  Ai pierdut! Cuvantul a fost",         secretWord)
 
 
 change()
 guessing()
 
-print("Game Over!")
+print("Joc incheiat!")
 
