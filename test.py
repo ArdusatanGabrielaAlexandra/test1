@@ -2,7 +2,7 @@ import random
 import sys
 
 
-# lets set some variables
+
 wordList = [
 "ICONOGRAFĂ", "FAGOCITUL", "APICOLILOR", "HIPOPLAZII", "PROHODI", "CIOPLEA", "COVÂRȘITELOR", "PÂRGUIRILE",
  "BURGHIERILE", "SAMAVOLNICII", "CĂȘĂIEȘTE", "SISALUL", "CINERARIILE", "DEZAGLOMERĂM", "TETRODĂ"
@@ -18,7 +18,7 @@ wordList = [
 "GUDRONĂM", "CORDENCIULUI", "STROPȘIRE", "FOILETONIST", "PLICISERĂ", "ACHITAT" ]
 
 guess_word = []
-secretWord = random.choice(wordList) # lets randomize single word from the list
+secretWord = random.choice(wordList)
 length_word = len(secretWord)
 alphabet = "AĂÂBCDEFGHIÎJKLMNOPQRSȘTȚUVWXYZ"
 letter_storage = []
@@ -35,7 +35,7 @@ letter_storage = []
 
 def change():
 
-    for character in secretWord: # printing blanks for each letter in secret word
+    for character in secretWord:
         guess_word.append("*")
 
     print("Cuvântul are", length_word, "caractere")
@@ -54,16 +54,15 @@ def guessing():
 
         guess = input("Introduceti o literă\n").upper()
 
-        if not guess in alphabet: #checking input
-            print("Introduceti o litera de la A-Z ")
-        elif guess in letter_storage: #checking if letter has been already used
-            print("Ai ghicit deja aceasta litera!")
+        if not guess in alphabet:
+            print("Introduceti o literă de la A-Z ")
+        elif guess in letter_storage:            print("Ai ghicit deja aceasta litera!")
         else:
 
             letter_storage.append(guess)
             if guess in secretWord:
                 print("Litera corecta!")
-                for x in range(0, length_word): #This Part I just don't get it
+                for x in range(0, length_word):
                     if secretWord[x] == guess:
                         guess_word[x] = guess
                         print(guess_word)
@@ -71,15 +70,3 @@ def guessing():
                 if not '*' in guess_word:
                     print("Ai castigat!")
                     break
-            else:
-                print("Litera nu este in cuvant. Incearca din nou!")
-                guess_taken += 1
-                if guess_taken == 10:
-                    print("  Ai pierdut! Cuvantul a fost",         secretWord)
-
-
-change()
-guessing()
-
-print("Joc incheiat!")
-
